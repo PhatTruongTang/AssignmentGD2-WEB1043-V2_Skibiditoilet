@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh Sách Trò Chơi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .game-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .game-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .game-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .game-img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .game-box:hover .game-img {
+      transform: scale(1.03);
+    }
+
+    .game-box h2 {
+      font-size: 20px;
+      margin: 10px 0;
+      color: #444;
+    }
+
+    .game-box p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .play-btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .play-btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .play-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Danh Sách Trò Chơi</h1>
+
+  <div class="game-container">
+    <!-- Game 1 -->
+    <div class="game-box">
+      <img src="../images/planeshooter.PNG" alt="Plane Shooter" class="game-img">
+      <h2>Plane Shooter</h2>
+      <p>[🌟Khuyên chơi thử] Bắn máy bay cực đỉnh! Né đạn, nâng cấp vũ khí và tiêu diệt kẻ thù.</p>
+      <button class="play-btn" onclick="window.location.href='PlaneShooterv2.html'">Chơi ngay</button>
+    </div>
+
+    <!-- Game 2 -->
+    <div class="game-box">
+      <img src="../images/snake.PNG" alt="Snake Eat" class="game-img">
+      <h2>Snake Eat</h2>
+      <p>Game rắn săn mồi cổ điển nhưng gây nghiện! Liệu bạn đạt bao nhiêu điểm?</p>
+      <button class="play-btn" onclick="window.location.href='DemoSnake.html'">Chơi ngay</button>
+    </div>
+
+    <!-- Game 3 -->
+    <div class="game-box">
+      <img src="../images/flappy.PNG" alt="Flappy Bird" class="game-img">
+      <h2>Flappy Bird</h2>
+      <p>Lướt qua ống nước, đừng để chim rơi! Siêu khó nhưng siêu vui.</p>
+      <button class="play-btn" onclick="window.location.href='Flappybird.html'">Chơi ngay</button>
+    </div>
+  </div>
+</body>
+</html>

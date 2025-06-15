@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPT Polytechnic - Trang chủ</title>
+    <link rel="stylesheet" href="../web/TrangChu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../web/font.css">
+</head>
+<style>
+
+    .info-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 0px;
+        padding: 20px;
+        position: relative;
+        border-radius: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        background-image: url('https://skibidi.io/wp-content/uploads/2023/08/Skibidi-Toilet-Images-12-840x473.jpg'); /* Đổi hình nền */
+        background-size: cover;
+        background-position: center;
+
+
+    }
+    .info-box {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px 20px;
+        border-radius: 10px;
+        width: 200px;
+        color: white;
+        transition: 0.3s;
+    }
+    .info-box:hover {
+        transform: scale(1.05);
+        background: rgba(0, 0, 0, 0.9);
+    }
+    .info-box img {
+        width: 100px;
+        height: 100px; 
+        filter: invert(1);
+    }
+    .info-box p {
+        margin: 5px 0;
+        font-size: 16px;
+        
+    }
+    .highlight {
+        font-size: 22px;
+        font-weight: bold;
+        color: yellow;
+    }
+    .hero {
+        background-image: url('https://i.ytimg.com/vi/c_pCHNGfcHk/maxresdefault.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+</style>
+<body>
+    <section class="hero" id="hero-section">
+        <div class="hero-text">
+            <h1 class="custom-font8">WELCOME SKIBIDI TOILET TO FPT Polytechnic!</h1>
+            <p>Trường Cao đẳng FPT – Hành trang vững chắc cho tương lai</p>
+            <a href="javascript:void(0)" class="btn-cta" id="toggle-btn">Tìm hiểu thêm</a>
+        </div>
+        <div class="glitch-overlay" id="glitch-overlay"></div>
+    </section>
+    <section class="more-info" id="more-info">
+        <div class="content">
+            <h2><i class="fas fa-university"></i> Tìm hiểu thêm về FPT Polytechnic</h2>
+            <p>
+            FPT Polytechnic là nơi hội tụ của công nghệ và giáo dục hiện đại, với môi trường học tập tiên tiến,
+            giảng viên hàng đầu và các chương trình đào tạo thực tiễn.<br><br>
+            Chúng tôi cam kết trang bị cho sinh viên những kiến thức và kỹ năng cần thiết để thành công trong tương lai.
+            <strong>Hãy cùng khám phá các tiện ích và dịch vụ hỗ trợ sinh viên tại đây!</strong>
+          </p>
+        </div>
+      </section>
+      
+    <section class="intro">
+        <h2>Vì sao chọn FPT Polytechnic?</h2>
+        <div class="intro-cards">
+            <div class="card">
+                <h3>Môi trường hiện đại</h3>
+                <p>Hệ thống phòng học và lab tiên tiến với trang thiết bị hiện đại.</p>
+            </div>
+            <div class="card">
+                <h3>Đội ngũ giảng viên</h3>
+                <p>Giảng viên giàu kinh nghiệm, nhiệt huyết, giúp sinh viên phát huy tối đa tiềm năng.</p>
+            </div>
+            <div class="card">
+                <h3>Hỗ trợ sinh viên</h3>
+                <p>Chương trình tư vấn, thực tập và kết nối việc làm sau khi ra trường.</p>
+            </div>
+        </div>
+    </section>
+            <div class="info-container">
+            <div class="info-box">
+                <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-1-110x110.png" alt="Sinh viên có việc làm">
+                <h2 class="highlight">97.7%</h2>
+                <p>Sinh viên có việc làm</p>
+            </div>
+            <div class="info-box">
+                <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-2-110x110.png" alt="Doanh nghiệp đối tác">
+                <h2 class="highlight">2.000 +</h2>
+                <p>Doanh nghiệp đối tác</p>
+            </div>
+            <div class="info-box">
+                <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-3-110x110.png" alt="Sinh viên & Cựu SV">
+                <h2 class="highlight">40.000</h2>
+                <p>Sinh viên & Cựu SV</p>
+            </div>
+            <div class="info-box">
+                <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-4-110x110.png" alt="Cơ sở đào tạo">
+                <h2 class="highlight">30 Cơ sở +</h2>
+                <p>Đào tạo toàn quốc</p>
+            </div>
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const moreInfo = document.getElementById('more-info');
+
+        moreInfo.style.display = 'none';
+
+        toggleBtn.addEventListener('click', function () {
+            if (moreInfo.style.display === 'none') {
+                moreInfo.style.display = 'block';
+                toggleBtn.textContent = 'Ẩn nội dung';
+                moreInfo.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                moreInfo.style.display = 'none';
+                toggleBtn.textContent = 'Tìm hiểu thêm';
+            }
+        });
+    </script>
+
+<script>
+    const hero = document.getElementById('hero-section');
+    const glitch = document.getElementById('glitch-overlay');
+  
+    const imageUrls = [
+      "../images/tvman2.jpg",
+      "../images/skibidiman.jpg",
+      "../images/tvman.jpg",
+      "../images/skibidititan.jpg",
+      "../images/jugger.webp",
+      "../images/tvman3.jpg",
+      "../images/gman.jpg",
+      "../images/titan1.jpg",
+      "../images/gman2.webp",
+      "../images/gman3.webp",
+      "../images/tvman4.jpg",
+      "../images/titan2.jpg",
+      "../images/gman5.jpg",
+      "../images/tvman5.jpg",
+      "../images/titan3.webp",
+      "../images/gman6.webp",
+      "../images/fred.webp",
+      "../images/fred.webp",
+      "../images/woman1.jpg",
+      "../images/titan8.jpg",
+      "../images/titan7.jpg",
+      "../images/titan6.jpg",
+      "../images/titan10.jpg",
+      "../images/titan9.webp",
+
+
+      "https://i.ytimg.com/vi/c_pCHNGfcHk/maxresdefault.jpg"
+
+    ];
+  
+    let index = 0;
+  
+    function changeBackground() {
+      glitch.classList.add('active');
+  
+      setTimeout(() => {
+        hero.style.backgroundImage = `url('${imageUrls[index]}')`;
+        index = (index + 1) % imageUrls.length;
+      }, 400); // delay đổi ảnh
+  
+      setTimeout(() => {
+        glitch.classList.remove('active');
+      }, 350); // hiệu ứng chớp mờ dần
+    }
+  
+    // Gọi mỗi 6 giây
+    setInterval(changeBackground, 6000);
+  </script>
+
+</body>
+
+</html>
