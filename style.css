@@ -2,6 +2,23 @@ iframe[name=page]{
     width: 100%;
     min-height: 400px;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar {
+    display: flex;
+    list-style: none;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     background-color: white;
@@ -577,4 +594,94 @@ footer {
     width: 100%;
     min-height: 1000px;
     height: calc(100vh - 200px); /*Điều chình dựa trên header/footer*/
+}
+@media (max-width: 610px) {
+    .container, .column {
+      width: 90% !important;
+      float: none !important;
+      margin: 0 auto !important;
+    }
+  
+    .san-pham {
+      margin: 10px auto;
+    }
+  }
+/* =================== Responsive cho thiết bị nhỏ (điện thoại) =================== */
+@media screen and (max-width: 768px) {
+    /* Ẩn logo nếu quá to, chỉnh lại kích thước */
+    .nav-bar .logo img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Hiển thị menu dạng mobile */
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        background-color: #333;
+        transition: left 0.3s ease;
+    }
+
+    /* Khi checkbox được check, mở menu */
+    #check:checked ~ .nav-bar {
+        left: 0;
+    }
+
+    .nav-bar li {
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid #555;
+    }
+
+    /* Dropdown menu chỉnh lại cho mobile */
+    .nav-bar .dropdown .dropdown-menu {
+        position: static;
+        display: none;
+        background-color: #444;
+    }
+
+    .nav-bar .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li {
+        padding-left: 20px;
+    }
+
+    /* Icon menu */
+    .open-menu, .close-menu {
+        display: block;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    /* Ẩn menu trên desktop */
+    .open-menu, .close-menu {
+        color: white;
+    }
+
+    /* Footer layout dọc */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        flex-direction: column;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    iframe#contentFrame {
+        height: 500px;
+    }
 }
