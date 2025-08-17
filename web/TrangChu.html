@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../web/font.css">
 </head>
-<style>
 
+<style>
+    body {
+        visibility: hidden;
+    }
     .info-container {
         display: flex;
         justify-content: center;
@@ -24,7 +27,7 @@
         margin-left: auto;
         margin-right: auto;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        background-image: url('https://skibidi.io/wp-content/uploads/2023/08/Skibidi-Toilet-Images-12-840x473.jpg'); /* Đổi hình nền */
+        background-image: url('https://caodang.fpt.edu.vn/wp-content/uploads/amime-toa-f-00-1_optimized.jpg'); /* Đổi hình nền */
         background-size: cover;
         background-position: center;
 
@@ -59,7 +62,7 @@
         color: yellow;
     }
     .hero {
-        background-image: url('https://i.ytimg.com/vi/c_pCHNGfcHk/maxresdefault.jpg');
+        background-image: url('../images/FPT.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -70,11 +73,47 @@
         color: white;
     }
 
+    .more-info {
+      display: none; /* Ẩn hoàn toàn khi load trang */
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.6s ease, max-height 0.6s ease;
+    }
+
+    .more-info.show {
+      opacity: 1;
+      max-height: 1000px; /* đủ lớn để chứa nội dung */
+    }
+    .btn-back {
+      background: linear-gradient(to right, #ff7f00, #ff4d00);
+      color: white;
+      border: none;
+      padding: 10px 14px; /* Nhỏ hơn */
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      margin-top: 15px; /* Di chuyển nút xuống */
+
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(to right, #ff9d3f, #ff6a3f);
+      transform: translateY(-2px);
+    }
+
 </style>
 <body>
+    <div id="loader" style="position: fixed; inset: 0; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s;">
+        <span>Đang tải...</span>
+    </div>
+    
     <section class="hero" id="hero-section">
         <div class="hero-text">
-            <h1 class="custom-font8">WELCOME SKIBIDI TOILET TO FPT Polytechnic!</h1>
+            <h1 class="custom-font8">WELCOME TO FPT Polytechnic!</h1>
             <p>Trường Cao đẳng FPT – Hành trang vững chắc cho tương lai</p>
             <a href="javascript:void(0)" class="btn-cta" id="toggle-btn">Tìm hiểu thêm</a>
         </div>
@@ -89,6 +128,7 @@
             Chúng tôi cam kết trang bị cho sinh viên những kiến thức và kỹ năng cần thiết để thành công trong tương lai.
             <strong>Hãy cùng khám phá các tiện ích và dịch vụ hỗ trợ sinh viên tại đây!</strong>
           </p>
+          <button id="back-btn" class="btn-back">Quay lại</button>
         </div>
       </section>
       
@@ -108,43 +148,68 @@
                 <p>Chương trình tư vấn, thực tập và kết nối việc làm sau khi ra trường.</p>
             </div>
         </div>
-    </section>
+        <section class="info-section">
+            <h2>Thống kê nổi bật</h2>
             <div class="info-container">
-            <div class="info-box">
+              <div class="info-box">
                 <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-1-110x110.png" alt="Sinh viên có việc làm">
-                <h2 class="highlight">97.7%</h2>
+                <div class="highlight">97.7%</div>
                 <p>Sinh viên có việc làm</p>
-            </div>
-            <div class="info-box">
+              </div>
+              <div class="info-box">
                 <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-2-110x110.png" alt="Doanh nghiệp đối tác">
-                <h2 class="highlight">2.000 +</h2>
+                <div class="highlight">2.000 +</div>
                 <p>Doanh nghiệp đối tác</p>
-            </div>
-            <div class="info-box">
+              </div>
+              <div class="info-box">
                 <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-3-110x110.png" alt="Sinh viên & Cựu SV">
-                <h2 class="highlight">40.000</h2>
+                <div class="highlight">40.000</div>
                 <p>Sinh viên & Cựu SV</p>
-            </div>
-            <div class="info-box">
+              </div>
+              <div class="info-box">
                 <img src="https://polyschool.fpt.edu.vn/wp-content/uploads/2019/12/icon-4-110x110.png" alt="Cơ sở đào tạo">
-                <h2 class="highlight">30 Cơ sở +</h2>
+                <div class="highlight">30 Cơ sở +</div>
                 <p>Đào tạo toàn quốc</p>
+              </div>
             </div>
-    <script>
+          </section>          
+        <script>
         const toggleBtn = document.getElementById('toggle-btn');
         const moreInfo = document.getElementById('more-info');
+        const backBtn = document.getElementById('back-btn');
+        const heroSection = document.getElementById('hero-section');
 
-        moreInfo.style.display = 'none';
+        function openMoreInfo() {
+            moreInfo.style.display = 'block'; // hiện trước
+            requestAnimationFrame(() => { // delay 1 frame
+                moreInfo.classList.add('show');
+            });
+            toggleBtn.textContent = 'Ẩn nội dung';
+            moreInfo.scrollIntoView({ behavior: 'smooth' });
+        }
 
-        toggleBtn.addEventListener('click', function () {
-            if (moreInfo.style.display === 'none') {
-                moreInfo.style.display = 'block';
-                toggleBtn.textContent = 'Ẩn nội dung';
-                moreInfo.scrollIntoView({ behavior: 'smooth' });
+        function closeMoreInfo() {
+            moreInfo.classList.remove('show');
+            toggleBtn.textContent = 'Tìm hiểu thêm';
+            moreInfo.addEventListener('transitionend', function handler(e) {
+                if (e.propertyName === 'max-height') {
+                    moreInfo.style.display = 'none';
+                    moreInfo.removeEventListener('transitionend', handler);
+                }
+            });
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (!moreInfo.classList.contains('show')) {
+                openMoreInfo();
             } else {
-                moreInfo.style.display = 'none';
-                toggleBtn.textContent = 'Tìm hiểu thêm';
+                closeMoreInfo();
             }
+        });
+
+        backBtn.addEventListener('click', () => {
+            closeMoreInfo();
+            heroSection.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 
@@ -153,34 +218,15 @@
     const glitch = document.getElementById('glitch-overlay');
   
     const imageUrls = [
-      "../images/tvman2.jpg",
-      "../images/skibidiman.jpg",
-      "../images/tvman.jpg",
-      "../images/skibidititan.jpg",
-      "../images/jugger.webp",
-      "../images/tvman3.jpg",
-      "../images/gman.jpg",
-      "../images/titan1.jpg",
-      "../images/gman2.webp",
-      "../images/gman3.webp",
-      "../images/tvman4.jpg",
-      "../images/titan2.jpg",
-      "../images/gman5.jpg",
-      "../images/tvman5.jpg",
-      "../images/titan3.webp",
-      "../images/gman6.webp",
-      "../images/fred.webp",
-      "../images/fred.webp",
-      "../images/woman1.jpg",
-      "../images/titan8.jpg",
-      "../images/titan7.jpg",
-      "../images/titan6.jpg",
-      "../images/titan10.jpg",
-      "../images/titan9.webp",
-
-
-      "https://i.ytimg.com/vi/c_pCHNGfcHk/maxresdefault.jpg"
-
+      "../images/FPT 2.jpg",
+      "../images/FPT 3.jpg",
+      "../images/FPT 4.jpg",
+      "../images/FPT 5.jpg",
+      "../images/FPT 6.jpg",
+      "../images/FPT 7.jpg",
+      "../images/FPT 8.jpg",
+      "../images/FPT 9.jpg",
+      "../images/FPT 10.jpg",
     ];
   
     let index = 0;
@@ -201,6 +247,18 @@
     // Gọi mỗi 6 giây
     setInterval(changeBackground, 6000);
   </script>
+<script>
+window.addEventListener('load', function () {
+    const loader = document.getElementById('loader');
+    loader.style.opacity = '0';
+    setTimeout(() => {
+        loader.style.display = 'none';
+        document.body.style.visibility = 'visible';
+    }, 500); // chờ hiệu ứng mờ dần
+});
+
+  </script>
+  
 
 </body>
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="icon" type="image/png" href="images/AstroLogo.webp"/> 
+</head>
+<body>
+<header>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+
+        <ul class="nav-bar">
+            
+            <li class="logo">
+                <a href="#" onclick="loadPage('web/TrangChu.html')">
+                    <img src="images/beesmall2.gif" width="100" height="100" alt="logo">
+                </a>
+            </li>
+            <li><a id="current-time2" href="#" onclick="loadPage('web/dongho.html')"></a></li>
+            <li><a href="#" onclick="loadPage('web/Login.html')">Đăng nhập</a></li>
+            <li><a href="#" onclick="loadPage('web/TrangChu.html')">Trang Chủ</a></li>
+
+            <li class="dropdown">
+                <a href="#">Tổng quan</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown">
+                        <a href="#" onclick="loadPage('web/index1.html')">Thông tin</a>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="loadPage('#')">Thông tin cá nhân</a></li>
+                            <li><a href="#" onclick="loadPage('#')">Thông tin học tập</a></li>
+                            <li><a href="#" onclick="loadPage('#')">Thông tin tài liệu</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="loadPage('')">Tài liệu</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" onclick="loadPage('web/Games.html')">Games</a></li>
+            <li><a href="#" onclick="loadPage('web/Lienhe.html')">Thưởng</a></li>
+            <li><a href="#" onclick="loadPage('web/GopY.html')">Dịch vụ</a></li>
+            <li><a href="#" onclick="loadPage('web/HoiDap.html')">Học phí</a></li>
+            <li><a href="#" onclick="loadPage('')">Sự kiện</a></li>
+            <li><a href="#" onlick="loadPage('')">Điểm</a></li>
+
+            <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+        </ul>
+    </nav>
+</header>
+
+<div id="content-container">
+    <iframe id="contentFrame" src="web/TrangChu.html" width="100%" height="600px" style="border: none;" loading="lazy"></iframe>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+          <br>
+            <a href="#"><img src="images/fpoly_logo-removebg-preview (1).png" alt="logo"></a>
+            <h1 id="current-time" style="color: red; font-size: 14px;"></h1>
+            <p>📞 0963 400 865</p>
+            <p>📧 Phothongcaodang@fpt.edu.vn</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="footer-column">
+              <br>
+                <h2>THÔNG TIN LIÊN HỆ</h2>
+                <h3>📍 KHU VỰC MIỀN BẮC</h3>
+                <p>Hà Nội 📞 (024) 8582 0808</p>
+                <p>Thái Nguyên 📞 091 532 9213</p>
+                <p>Hải Phòng 📞 091 543 1313</p>
+            </div>
+            <div class="footer-column">
+                <h3>📍 KHU VỰC MIỀN TRUNG</h3>
+                <p>Đà Nẵng 📞 023 6371 0999</p>
+                <p>Nghệ An 📞 0963 400 865</p>
+                <p>Nha Trang 📞 0258 351 9939</p>
+            </div>
+            <div class="footer-column">
+                <h3>📍 KHU VỰC MIỀN NAM</h3>
+                <p>TP.HCM 📞 0901 660 002</p>
+                <p>Bình Dương 📞 0274 730 0999</p>
+                <p>Cần Thơ 📞 098 388 1100</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Powered by <strong>FPT</strong></p>
+    </div>
+</footer>
+
+<script>
+    function loadPage(page) {
+        document.getElementById("contentFrame").src = page;
+    }
+
+    function updateTime() {
+        const now = new Date();
+        const formattedTime = now.toLocaleString('vi-VN', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            day: '2-digit', month: '2-digit', year: 'numeric'
+        });
+        document.getElementById('current-time').innerText = `⏰ Thời gian hiện tại: ${formattedTime}`;
+        document.getElementById('current-time2').textContent = now.toLocaleTimeString();
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+</script>
+</body>
+</html>

@@ -9,8 +9,22 @@ nav {
 }
 
 .nav-bar {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
+    background: linear-gradient(270deg, #ff7a18, #ffb347, #ff7a18);
+    background-size: 600% 600%;
+    animation: gradientShift 8s ease infinite;
+    padding: 12px 24px;
+}
+
+/* Animation chuyển màu */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .footer-container {
@@ -24,13 +38,13 @@ body {
     background-color: white;
     font-size: 20px;
     text-align: center;
-    --color1: #ffffff;
-    --color2: #000000f1;
+    --color1: #ed8637;
+    --color2: #eea230;
 }
 h2 {
     font-size: 30px;
     font-weight: bold;
-    color: orange;
+    color: rgb(224, 221, 44);
     animation: rainbowColor 10s infinite alternate;
     text-align: center;
     text-shadow: 0px 0px 5px rgb(255, 0, 0);
@@ -75,7 +89,7 @@ h2 {
 }
 
 .san-pham .gia del {
-    color: gray;
+    color: rgb(0, 0, 0);
 }
 
 
@@ -184,7 +198,8 @@ em{
 
 /* Khi hover vào thì chuyển dần sang màu xám */
 .nav-bar li a:hover {
-    color: #aaa; /* hoặc #888 tùy mức độ xám mong muốn */
+    color: #959595; /* hoặc #888 tùy mức độ xám mong muốn */
+    font-weight: bold; /* làm đậm chữ khi hover */
 }
 
 /* Hiệu ứng gạch chân trượt ngang */
@@ -216,8 +231,8 @@ em{
 }
 
 .logo img{
-    width: 220px; /* Điều chỉnh kích thước logo */
-    height: 110px;
+    width: 150px; /* Điều chỉnh kích thước logo */
+    height: 100px;
 }
 .menu {
     display: flex;
@@ -361,7 +376,7 @@ nav ul li a {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fd6900;
+    background-color: #fd8937;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     list-style: none;
@@ -393,7 +408,7 @@ nav ul li a {
   }
   
   .dropdown-menu li a:hover {
-    background-color: #ff8800;
+    background-color: #fb9a2c;
     border-radius: 5px;
 
   }
@@ -403,7 +418,7 @@ nav ul li a {
     position: absolute;
     top: 0; /* giữ top ở cùng hàng với Bồn Cầu */
     left: 200px; /* đẩy qua phải một đoạn, tùy ý */
-    background-color: #ff6600;
+    background-color: #fe812e;
     min-width: 150px;
     padding: 8px 0;
     border-radius: 5px;
