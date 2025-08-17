@@ -118,5 +118,17 @@
     setInterval(updateTime, 1000);
     updateTime();
 </script>
+
+<!-- ✅ Đặt đoạn này ngay bên dưới -->
+<script>
+    window.addEventListener('load', () => {
+        if (!sessionStorage.getItem('hasReloaded')) {
+            sessionStorage.setItem('hasReloaded', 'true');
+            location.reload();
+        }
+    });
+</script>
+
+
 </body>
 </html>
